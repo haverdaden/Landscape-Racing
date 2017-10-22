@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 198871241179563090}
   - component: {fileID: 199648104133306082}
   - component: {fileID: 114167276830438084}
+  - component: {fileID: 114634563973294152}
   m_Layer: 0
   m_Name: BloodSplash
   m_TagString: Untagged
@@ -35,13 +36,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1760260340297846}
-  m_LocalRotation: {x: -0.8433915, y: 0, z: 0, w: 0.53729963}
-  m_LocalPosition: {x: -1067.44, y: 215.8, z: 12.11}
+  m_LocalRotation: {x: -0.71464634, y: -0, z: -0, w: 0.699486}
+  m_LocalPosition: {x: -817.46, y: 191.05, z: -0.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -115, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -91.228, y: 0, z: 0}
 --- !u!114 &114167276830438084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -53,6 +54,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc9d6c2800abd54f961ab97cc1520d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DestroyTime: 2
+--- !u!114 &114634563973294152
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1760260340297846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a45ae6b54a116342832161d1dab7f67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ColliderToIgnore: {fileID: 0}
+  LayerToignore:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!198 &198871241179563090
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -112,7 +129,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 914316058
+  randomSeed: -1145209637
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -2523,7 +2540,7 @@ ParticleSystem:
     radiusScale: 0.01
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 4294966783
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -3351,9 +3368,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -899296367
+  m_SortingLayer: 2
+  m_SortingOrder: 2
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0

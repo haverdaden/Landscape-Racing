@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class SaveSystem : MonoBehaviour
 {
+    public Player Player;
 
     //Loading
     public static int Load()

@@ -41,7 +41,7 @@ public class CarMotor : MonoBehaviour
     void FixedUpdate()
     {
    
-        carToRotate.AddTorque(rotation * rotationSpeed * Time.deltaTime);
+        carToRotate.AddTorque(rotation * rotationSpeed * 1000000 * Time.deltaTime);
 
         //If car breaks stop engine.
         if (backWheel == null || frontWheel == null)

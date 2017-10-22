@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Schema;
 using UnityEngine;
 
 public class DeathScript : MonoBehaviour {
 
     public GameObject Car;
-   // private bool IsDead;
+    public GameObject BloodPrefab;
     private AudioSource Audiosource;
     public ResetCar ResetCar;
     public Sprite BloodSprite;
     public Sprite FreezeSprite;
+    public bool UseBlood = true;
     private int ResetTime = 3;
+    private bool IsDead;
 
     // Use this for initialization
     void Start()
@@ -18,40 +21,47 @@ public class DeathScript : MonoBehaviour {
         Audiosource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void Kill()
     {
         Audiosource.Play();
         Destroy(Car.GetComponent<CarMotor>());
         Destroy(Car.GetComponent<AudioSource>());
+        IsDead = true;
 
     }
     public void Freeze()
     {
+        if (IsDead) return;
+
         Kill();
         Car.gameObject.GetComponent<SpriteRenderer>().sprite = FreezeSprite;
         var CarRb = Car.GetComponent<Rigidbody2D>();
+        CarRb.gravityScale = 0.1f;
+        CarRb.velocity = CarRb.velocity * 0.1f;
 
         foreach (Transform child in Car.transform)
         {
-            child.GetComponent<Rigidbody2D>().angularVelocity = 0;
-        }
-
-        CarRb.gravityScale = 0.1f;
-        CarRb.velocity = CarRb.velocity * 0.1f;
+            if (child.GetComponent<Rigidbody2D>())
+            {
+                Destroy(child.GetComponent<Rigidbody2D>());
+            }
+        }//
 
         //Reset Vehicle
         StartCoroutine(ResetCar.Reset(ResetTime));
     }
     public void Crash()
     {
+        if (IsDead) return;
         Kill();
-        Car.gameObject.GetComponent<SpriteRenderer>().sprite = BloodSprite;
+
+        if (UseBlood)
+        {
+            //Spawn Blood
+            Instantiate(BloodPrefab, Car.transform.position, Quaternion.identity);
+            Car.gameObject.GetComponent<SpriteRenderer>().sprite = BloodSprite;
+        }
+
         Car.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
 
         //DESTROY THE CAR
@@ -63,4 +73,28 @@ public class DeathScript : MonoBehaviour {
         //Reset Vehicle
         StartCoroutine(ResetCar.Reset(ResetTime));
     }
-}
+    public void Crush()
+    {
+        if (IsDead) return;
+        Kill();
+
+        if (UseBlood)
+        {
+            //Spawn Blood
+            Instantiate(BloodPrefab, Car.transform.position, Quaternion.identity);
+            Car.gameObject.GetComponent<SpriteRenderer>().sprite = BloodSprite;
+        }
+
+
+        //DESTROY THE CAR
+        foreach (WheelJoint2D WheelJoint in Car.GetComponents<WheelJoint2D>())
+        {
+            Destroy(WheelJoint);
+        }
+
+        //Reset Vehicle
+        StartCoroutine(ResetCar.Reset(ResetTime));
+    }
+
+    }
+

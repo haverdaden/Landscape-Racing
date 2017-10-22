@@ -8,6 +8,7 @@ public class ResetCar : MonoBehaviour
 {
     public GameObject CarToReset;
     public Transform ResetPosition;
+    public 
 
 
     void Update()
@@ -20,10 +21,20 @@ public class ResetCar : MonoBehaviour
         }
     }
 
+    //RESTART LEVEL
     public IEnumerator Reset(int ResetTime)
     {
         yield return new WaitForSeconds(ResetTime);
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    //RESTART FROM CHECKPOINT
+    public IEnumerator ResetToCheckPoint(int ResetTime)
+    {
+        yield return new WaitForSeconds(ResetTime);
+       // CarToReset.transform.position = CheckPoint
+
+        //Set dead false
     }
 }
