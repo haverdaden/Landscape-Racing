@@ -6,35 +6,35 @@ using UnityEngine.UI;
 public class PlayerValues : MonoBehaviour
 {
 
-    public static Text MoneyText;
     public static int Playermoney;
     public static Player Player = new Player();
-    
-    void Start()
+   
+    public static void SetProgress(int level)
     {
-        DontDestroyOnLoad(transform.gameObject);
-        SetMoneyStart();
-    }
-
-    private static void SetMoneyStart()
-    {
-        if (MoneyText)
+        Player.money = MoneyPickup.GetTotalMoney();
+        print(Player.money);
+        if (CheckProgress(level))
         {
-            MoneyText.text = "MONEY: " + Playermoney;
+            Player.level = level;
         }
+
+        SaveSystem.Save();
     }
 
-    public static void SetLevel(int level)
+    public static bool CheckProgress(int levelNumber)
     {
-        Player.level = level;
-        print(Player.level);
+        if (levelNumber > Player.level)
+        {
+            return true;
+        }
+        return false;
     }
-
 }
 
+[System.Serializable]
 public class Player
 {
-    public int level;
+    public int level = 2;
 
-    public int money;
+    public int money = 0;
 }

@@ -127,7 +127,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1347867119578308}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -732.7, y: 172.8, z: 0}
+  m_LocalPosition: {x: 463.4, y: 76.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4017802935893304}
@@ -187,9 +187,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.5
+  m_Mass: 40
   m_LinearDrag: 0
-  m_AngularDrag: 3
+  m_AngularDrag: 1
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -207,8 +207,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5
-  m_LinearDrag: 0.3
+  m_Mass: 1400
+  m_LinearDrag: 0.15
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -227,7 +227,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.5
+  m_Mass: 40
   m_LinearDrag: 0
   m_AngularDrag: 1
   m_GravityScale: 1
@@ -608,8 +608,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3000
-  rotationSpeed: 10000
-  jumpHeight: 50
+  rotationSpeed: 2
+  jumpHeight: 10000
   carToRotate: {fileID: 50515744974856250}
   backWheelRb: {fileID: 50455815777021020}
   frontWheelRb: {fileID: 50790885828172564}
@@ -857,7 +857,7 @@ WheelJoint2D:
   m_ConnectedAnchor: {x: 0, y: 0}
   m_Suspension:
     m_DampingRatio: 1
-    m_Frequency: 10
+    m_Frequency: 20
     m_Angle: 90
   m_UseMotor: 0
   m_Motor:
@@ -880,7 +880,7 @@ WheelJoint2D:
   m_ConnectedAnchor: {x: 0, y: 0}
   m_Suspension:
     m_DampingRatio: 1
-    m_Frequency: 10
+    m_Frequency: 20
     m_Angle: 90
   m_UseMotor: 0
   m_Motor:

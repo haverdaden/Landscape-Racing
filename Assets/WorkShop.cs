@@ -1,16 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class WorkShop : MonoBehaviour {
+public class WorkShop : MonoBehaviour
+{
+    public SaveSystem SaveSystem;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void Continue()
+    {
+        SceneManager.LoadScene(PlayerValues.Player.level);
+    }
 }

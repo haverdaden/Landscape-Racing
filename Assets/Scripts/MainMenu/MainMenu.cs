@@ -10,15 +10,16 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject ContinueButton;
     public GameObject NewGamePanel;
-    public SaveSystem SaveSystem;
 
     void Start()
-    {     
+    {
         if (SaveSystem.SaveExist())
         {
+            //LOAD IN ALL THE PLAYER VALUES ON GAME START
+            SaveSystem.Load();
             ContinueButton.SetActive(true);
-        }      
-    }
+        }
+    }//
 
     public void StartNewGame()
     {
@@ -28,7 +29,7 @@ public class MainMenu : MonoBehaviour
 
     public void Continue()
     {
-        SceneManager.LoadScene(SaveSystem.Load());
+        SceneManager.LoadScene(1);
     }
 
     public void Exit()

@@ -8,27 +8,39 @@ using UnityEngine.SceneManagement;
 
 public class SaveSystem : MonoBehaviour
 {
-    public Player Player;
+    private void Awake()
+    {
+        Load();
+    }
 
     //Loading
-    public static int Load()
+    public static void Load()
     {
+        print("LOADING");
         string path = Application.persistentDataPath + "/Savegame.txt";
+
         if (!File.Exists(path))
         {
-            return 0;
+            return;
         }
-        //Read the text from directly from the test.txt file
+
         var file = File.Open(path, FileMode.Open);
         BinaryFormatter bf = new BinaryFormatter();
-        int progressLevel = Int32.Parse(bf.Deserialize(file).ToString());
-        file.Close();
 
-        return progressLevel;
+        try
+        {
+            PlayerValues.Player = (Player) bf.Deserialize(file);
+        }
+        catch (Exception e)
+        {
+           
+            throw;
+        }
+        file.Close();
 
     }
 
-    public static void Save(int levelNumber)
+    public static void Save()
     {
         string path = Application.persistentDataPath + "/Savegame.txt";
         if (!File.Exists(path))
@@ -40,34 +52,32 @@ public class SaveSystem : MonoBehaviour
 
         BinaryFormatter bf = new BinaryFormatter();
 
-            bf.Serialize(file, levelNumber);
-            Debug.Log("SAVED: " + levelNumber);
+            bf.Serialize(file, PlayerValues.Player);
+            Debug.Log("SAVED: " + PlayerValues.Player);
         
         file.Close();
     }
 
-    public void CheckProgress(int levelNumber)
+
+    public static bool SaveExist()
     {
-        if (levelNumber > Load())
+        string path = Application.persistentDataPath + "/Savegame.txt";
+
+        if (!File.Exists(path))
         {
-            Save(levelNumber);
+            return false;
         }
+        return true;
     }
 
-    public bool SaveExist()
-    {
-        if (Load() > 0)
-        {
-            return true;
-        }
-        return false;
-    }//
-
-    public void DeleteSave()
+    public static void DeleteSave()
     {
         string path = Application.persistentDataPath + "/Savegame.txt";
 
         File.Delete(path);
+
+        PlayerValues.Player.money = 0;
+        PlayerValues.Player.level = 2;
 
         Debug.Log(path + " deleted");
     }

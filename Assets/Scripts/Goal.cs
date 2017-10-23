@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
-    public SaveSystem SaveSystem;
     public PlayerValues PlayerValues;
 
     void OnTriggerEnter2D(Collider2D other)
@@ -21,8 +20,7 @@ public class Goal : MonoBehaviour
 
     void SaveProgress()
     {
-        //SaveSystem.CheckProgress(SceneManager.GetActiveScene().buildIndex);
-        PlayerValues.SetLevel(SceneManager.GetActiveScene().buildIndex);
+        PlayerValues.SetProgress(SceneManager.GetActiveScene().buildIndex);
     }
    
 }
