@@ -35,13 +35,12 @@ public class PlayerValues : MonoBehaviour
 public class Player
 {
     public int level = 2;
-    public int money = 0;
+    public int money = 1000;
+    public int Engine = 0;
+    public int Wheels = 0;
+    public int Drivetrain = 0;
     public float gameVolume = 0.5f;
     public float musicVolume = 0.5f;
-    public List<bool> UnlockedEngines;
-    public List<bool> UnlockedWheels;
-    public List<bool> UnlockedDriveTrain;
-    public int Engine = 3;
-    public int Wheels = 2;
-    public int Drivetrain = 1;
+    public bool[] UnlockedUpgrades = new bool[9];
+
 }

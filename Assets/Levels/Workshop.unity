@@ -215,7 +215,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 350.00012, y: -178.5}
+  m_AnchoredPosition: {x: 350.00015, y: -178.5}
   m_SizeDelta: {x: 700, y: 113.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &25528081
@@ -838,6 +838,7 @@ GameObject:
   - component: {fileID: 222074085}
   - component: {fileID: 222074084}
   - component: {fileID: 222074087}
+  - component: {fileID: 222074088}
   m_Layer: 5
   m_Name: BuyButton
   m_TagString: Untagged
@@ -902,7 +903,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 222074085}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1272766943}
+        m_MethodName: BuyUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 222074084}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &222074085
@@ -985,6 +997,18 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &222074088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 222074082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91dc4f4f16b2374783acd94d4bf4e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BuyAmount: 600
 --- !u!114 &279423373 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114251364879793414, guid: 8eac91640cb483f4990ef8e7b2f1dee9,
@@ -1047,11 +1071,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: b8d2688c61266a54ab798815500db09c, type: 3}
-    m_FontSize: 20
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 20
+    m_MaxSize: 30
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -2101,11 +2125,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: b8d2688c61266a54ab798815500db09c, type: 3}
-    m_FontSize: 20
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 20
+    m_MaxSize: 30
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -2137,8 +2161,9 @@ GameObject:
   - component: {fileID: 594982338}
   - component: {fileID: 594982337}
   - component: {fileID: 594982340}
+  - component: {fileID: 594982341}
   m_Layer: 5
-  m_Name: BuyButton (1)
+  m_Name: BuyButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2201,7 +2226,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 594982338}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1272766943}
+        m_MethodName: BuyUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 594982337}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &594982338
@@ -2284,6 +2320,18 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &594982341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 594982335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91dc4f4f16b2374783acd94d4bf4e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BuyAmount: 1000
 --- !u!1 &597178127
 GameObject:
   m_ObjectHideFlags: 0
@@ -2296,6 +2344,7 @@ GameObject:
   - component: {fileID: 597178130}
   - component: {fileID: 597178129}
   - component: {fileID: 597178132}
+  - component: {fileID: 597178133}
   m_Layer: 5
   m_Name: BuyButton
   m_TagString: Untagged
@@ -2360,7 +2409,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 597178130}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1272766943}
+        m_MethodName: BuyUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 597178129}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &597178130
@@ -2443,6 +2503,18 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &597178133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 597178127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91dc4f4f16b2374783acd94d4bf4e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BuyAmount: 300
 --- !u!1 &602120677
 GameObject:
   m_ObjectHideFlags: 0
@@ -2684,7 +2756,7 @@ Prefab:
     - target: {fileID: 114920078791630382, guid: 8eac91640cb483f4990ef8e7b2f1dee9,
         type: 2}
       propertyPath: m_Text
-      value: Peformance Engine 2
+      value: Peformance Wheels 2
       objectReference: {fileID: 0}
     - target: {fileID: 224585757702113156, guid: 8eac91640cb483f4990ef8e7b2f1dee9,
         type: 2}
@@ -3015,11 +3087,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: b8d2688c61266a54ab798815500db09c, type: 3}
-    m_FontSize: 20
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 20
+    m_MaxSize: 30
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -3100,7 +3172,7 @@ Canvas:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 928750473}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 1090318145}
@@ -3145,6 +3217,7 @@ GameObject:
   - component: {fileID: 964059033}
   - component: {fileID: 964059032}
   - component: {fileID: 964059035}
+  - component: {fileID: 964059036}
   m_Layer: 5
   m_Name: BuyButton
   m_TagString: Untagged
@@ -3209,7 +3282,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 964059033}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1272766943}
+        m_MethodName: BuyUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 964059032}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &964059033
@@ -3292,6 +3376,18 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &964059036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 964059030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91dc4f4f16b2374783acd94d4bf4e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BuyAmount: 10000
 --- !u!1 &971151094
 GameObject:
   m_ObjectHideFlags: 0
@@ -3844,7 +3940,7 @@ Prefab:
     - target: {fileID: 114920078791630382, guid: 8eac91640cb483f4990ef8e7b2f1dee9,
         type: 2}
       propertyPath: m_Text
-      value: Peformance Engine 3
+      value: Peformance Wheels 3
       objectReference: {fileID: 0}
     - target: {fileID: 224585757702113156, guid: 8eac91640cb483f4990ef8e7b2f1dee9,
         type: 2}
@@ -3980,11 +4076,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: b8d2688c61266a54ab798815500db09c, type: 3}
-    m_FontSize: 20
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 20
+    m_MaxSize: 30
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -4010,8 +4106,9 @@ GameObject:
   - component: {fileID: 1195512311}
   - component: {fileID: 1195512310}
   - component: {fileID: 1195512313}
+  - component: {fileID: 1195512314}
   m_Layer: 5
-  m_Name: BuyButton (2)
+  m_Name: BuyButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4074,7 +4171,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1195512311}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1272766943}
+        m_MethodName: BuyUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1195512310}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1195512311
@@ -4157,6 +4265,18 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &1195512314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1195512308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91dc4f4f16b2374783acd94d4bf4e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BuyAmount: 10000
 --- !u!1001 &1268961188
 Prefab:
   m_ObjectHideFlags: 0
@@ -4443,6 +4563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UpgradeUi: {fileID: 928750476}
+  NotEnoughMoneyText: {fileID: 2122133936}
   EngineList:
   - {fileID: 49410442}
   - {fileID: 1293065469}
@@ -4458,6 +4579,16 @@ MonoBehaviour:
   DrivetrainList:
   - {fileID: 617953198}
   - {fileID: 279423373}
+  BuyButtons:
+  - {fileID: 1566378096}
+  - {fileID: 222074084}
+  - {fileID: 1777647919}
+  - {fileID: 1195512310}
+  - {fileID: 2103237960}
+  - {fileID: 597178129}
+  - {fileID: 594982337}
+  - {fileID: 1329645637}
+  - {fileID: 964059032}
 --- !u!114 &1293065469 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114251364879793414, guid: 8eac91640cb483f4990ef8e7b2f1dee9,
@@ -4496,6 +4627,7 @@ RectTransform:
   - {fileID: 2079991077}
   - {fileID: 25528080}
   - {fileID: 615301059}
+  - {fileID: 2122133935}
   m_Father: {fileID: 928750477}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4549,8 +4681,9 @@ GameObject:
   - component: {fileID: 1329645638}
   - component: {fileID: 1329645637}
   - component: {fileID: 1329645640}
+  - component: {fileID: 1329645641}
   m_Layer: 5
-  m_Name: BuyButton (2)
+  m_Name: BuyButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4613,7 +4746,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1329645638}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1272766943}
+        m_MethodName: BuyUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1329645637}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1329645638
@@ -4696,6 +4840,18 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &1329645641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1329645635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91dc4f4f16b2374783acd94d4bf4e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BuyAmount: 3000
 --- !u!1 &1360409462
 GameObject:
   m_ObjectHideFlags: 0
@@ -4752,11 +4908,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: b8d2688c61266a54ab798815500db09c, type: 3}
-    m_FontSize: 20
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 20
+    m_MaxSize: 30
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -5159,11 +5315,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: b8d2688c61266a54ab798815500db09c, type: 3}
-    m_FontSize: 20
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 20
+    m_MaxSize: 30
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -5189,6 +5345,7 @@ GameObject:
   - component: {fileID: 1566378097}
   - component: {fileID: 1566378096}
   - component: {fileID: 1566378099}
+  - component: {fileID: 1566378100}
   m_Layer: 5
   m_Name: BuyButton
   m_TagString: Untagged
@@ -5256,10 +5413,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1272766943}
         m_MethodName: BuyUpgrade
-        m_Mode: 3
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1566378096}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
           m_IntArgument: 1000
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5347,6 +5504,18 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &1566378100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1566378094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91dc4f4f16b2374783acd94d4bf4e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BuyAmount: 200
 --- !u!1 &1603326391
 GameObject:
   m_ObjectHideFlags: 0
@@ -5634,7 +5803,7 @@ Prefab:
     - target: {fileID: 114920078791630382, guid: 8eac91640cb483f4990ef8e7b2f1dee9,
         type: 2}
       propertyPath: m_Text
-      value: Peformance Engine 4
+      value: Peformance Wheels 4
       objectReference: {fileID: 0}
     - target: {fileID: 224585757702113156, guid: 8eac91640cb483f4990ef8e7b2f1dee9,
         type: 2}
@@ -6000,11 +6169,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: b8d2688c61266a54ab798815500db09c, type: 3}
-    m_FontSize: 20
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 20
+    m_MaxSize: 30
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -6045,7 +6214,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6139,8 +6308,9 @@ GameObject:
   - component: {fileID: 1777647920}
   - component: {fileID: 1777647919}
   - component: {fileID: 1777647922}
+  - component: {fileID: 1777647923}
   m_Layer: 5
-  m_Name: BuyButton (1)
+  m_Name: BuyButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6203,7 +6373,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1777647920}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1272766943}
+        m_MethodName: BuyUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1777647919}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1777647920
@@ -6286,6 +6467,18 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &1777647923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1777647917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91dc4f4f16b2374783acd94d4bf4e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BuyAmount: 3000
 --- !u!1 &1792272582
 GameObject:
   m_ObjectHideFlags: 0
@@ -6342,11 +6535,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: b8d2688c61266a54ab798815500db09c, type: 3}
-    m_FontSize: 20
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 20
+    m_MaxSize: 30
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -6416,7 +6609,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: b8d2688c61266a54ab798815500db09c, type: 3}
-    m_FontSize: 50
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -6490,11 +6683,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: b8d2688c61266a54ab798815500db09c, type: 3}
-    m_FontSize: 20
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 20
+    m_MaxSize: 30
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -6689,6 +6882,11 @@ Prefab:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 910412552}
+    - target: {fileID: 114920078791630382, guid: 8eac91640cb483f4990ef8e7b2f1dee9,
+        type: 2}
+      propertyPath: m_Text
+      value: Stock Wheels
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8eac91640cb483f4990ef8e7b2f1dee9, type: 2}
   m_IsPrefabParent: 0
@@ -7035,6 +7233,7 @@ GameObject:
   - component: {fileID: 2103237961}
   - component: {fileID: 2103237960}
   - component: {fileID: 2103237963}
+  - component: {fileID: 2103237964}
   m_Layer: 5
   m_Name: BuyButton
   m_TagString: Untagged
@@ -7099,7 +7298,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2103237961}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1272766943}
+        m_MethodName: BuyUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2103237960}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2103237961
@@ -7182,6 +7392,18 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &2103237964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2103237958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91dc4f4f16b2374783acd94d4bf4e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BuyAmount: 100
 --- !u!1001 &2103998648
 Prefab:
   m_ObjectHideFlags: 0
@@ -7291,7 +7513,7 @@ Prefab:
     - target: {fileID: 114920078791630382, guid: 8eac91640cb483f4990ef8e7b2f1dee9,
         type: 2}
       propertyPath: m_Text
-      value: Peformance Engine 1
+      value: Peformance Wheels 1
       objectReference: {fileID: 0}
     - target: {fileID: 224585757702113156, guid: 8eac91640cb483f4990ef8e7b2f1dee9,
         type: 2}
@@ -7371,6 +7593,80 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224585757702113156, guid: 8eac91640cb483f4990ef8e7b2f1dee9,
     type: 2}
   m_PrefabInternal: {fileID: 2103998648}
+--- !u!1 &2122133934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2122133935}
+  - component: {fileID: 2122133937}
+  - component: {fileID: 2122133936}
+  m_Layer: 5
+  m_Name: NotEnoughMoneyText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2122133935
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2122133934}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1297180855}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 370.00003, y: -346}
+  m_SizeDelta: {x: 823, y: 104.7}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2122133936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2122133934}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0.26896524, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: b8d2688c61266a54ab798815500db09c, type: 3}
+    m_FontSize: 80
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 100
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Not Enough Money!
+--- !u!222 &2122133937
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2122133934}
 --- !u!114 &2131473197 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114251364879793414, guid: 8eac91640cb483f4990ef8e7b2f1dee9,
