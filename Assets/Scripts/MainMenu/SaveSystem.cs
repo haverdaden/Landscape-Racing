@@ -8,10 +8,6 @@ using UnityEngine.SceneManagement;
 
 public class SaveSystem : MonoBehaviour
 {
-    private void Awake()
-    {
-        Load();
-    }
 
     //Loading
     public static void Load()
@@ -27,15 +23,11 @@ public class SaveSystem : MonoBehaviour
         var file = File.Open(path, FileMode.Open);
         BinaryFormatter bf = new BinaryFormatter();
 
-        try
-        {
+
+  
             PlayerValues.Player = (Player) bf.Deserialize(file);
-        }
-        catch (Exception e)
-        {
-           
-            throw;
-        }
+        
+
         file.Close();
 
     }

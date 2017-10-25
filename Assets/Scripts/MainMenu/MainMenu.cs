@@ -16,10 +16,10 @@ public class MainMenu : MonoBehaviour
         if (SaveSystem.SaveExist())
         {
             //LOAD IN ALL THE PLAYER VALUES ON GAME START
-            SaveSystem.Load();
+           SaveSystem.Load();
             ContinueButton.SetActive(true);
         }
-    }//
+    }
 
     public void StartNewGame()
     {

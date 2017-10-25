@@ -5,7 +5,7 @@ using UnityEngine;
 public class PreventDestroy : MonoBehaviour {
 
 
-    private static bool created = false;
+    private static bool created;
  
     void Awake()
     {

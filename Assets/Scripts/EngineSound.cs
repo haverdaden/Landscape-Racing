@@ -6,9 +6,14 @@ public class EngineSound : MonoBehaviour {
 
     public float topSpeed = 100; // km per hour
     public CarMotor WorkingCarMotor;
+    private AudioSource EngineAudio;
     private float currentSpeed = 0;
     private float pitch = 0;
-    
+
+    private void Start()
+    {
+        EngineAudio = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -17,8 +22,9 @@ public class EngineSound : MonoBehaviour {
             currentSpeed = transform.GetComponent<Rigidbody2D>().velocity.magnitude * 3.6f;
             pitch = currentSpeed / topSpeed + 1;
 
-            transform.GetComponent<AudioSource>().pitch = pitch;
+            EngineAudio.pitch = pitch;
         }
 
     }
+
 }

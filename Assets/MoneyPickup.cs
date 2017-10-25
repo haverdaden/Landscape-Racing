@@ -7,12 +7,17 @@ public class MoneyPickup : MonoBehaviour
 {
     public int MoneyValue = 1;
     private Text MoneyText;
+    private AudioSource CoinSound;
+    private SpriteRenderer Renderer;
     private static int TotalMoney;
     public GameObject Car;
+    
 
     private void Start()
     {
         MoneyText = GameObject.FindWithTag("Money").GetComponent<Text>();
+        CoinSound = GetComponent<AudioSource>();
+        Renderer = GetComponent<SpriteRenderer>();
         TotalMoney = PlayerValues.Player.money;
         MoneyText.text = "MONEY: " + TotalMoney;
     }
@@ -28,9 +33,11 @@ public class MoneyPickup : MonoBehaviour
     {
         if (other.gameObject.name == Car.name)
         {
+            CoinSound.Play();
             AddMoney(MoneyValue);
             MoneyText.text = "MONEY: " + TotalMoney;
-            Destroy(transform.gameObject);
+            Renderer.enabled = false;
+            Destroy(transform.gameObject,1);
         }
 
     }

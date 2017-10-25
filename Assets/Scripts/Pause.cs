@@ -1,20 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour {
 
     public GameObject PauseMenu;
     private bool _paused;
     private float DefaultTimescale;
-    private float DefaultFixedDeltaTime;
     private float timeScale = 0;
-    private float fixedDeltaTime = 0.02f;
+
 
     void Start()
     {
         DefaultTimescale = Time.timeScale;
-        DefaultFixedDeltaTime = Time.fixedDeltaTime;
+
     }
 	void Update () {
 	    if (Input.GetKeyDown(KeyCode.Escape))
@@ -33,4 +33,9 @@ public class Pause : MonoBehaviour {
 
 	    }
 	}
+
+    public void Quit()
+    {
+        SceneManager.LoadScene(1);
+    }
 }
