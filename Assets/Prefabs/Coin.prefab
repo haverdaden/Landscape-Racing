@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83f0e232c049e3f4a871b1a2bb0d9c84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoneyValue: 1
+  MoneyValue: 10
   Car: {fileID: 1347867119578308, guid: 4217f0fdbf2bb694a9bb3ec1bfa01769, type: 2}
 --- !u!212 &212735596232743488
 SpriteRenderer:

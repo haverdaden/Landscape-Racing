@@ -9,22 +9,20 @@ public class Timer : MonoBehaviour
 {
 
     public Text timerText;
+    public Text levelCompletedTimerText;
     public HighScoreCheck HighScoreCheck;
     private float StartTime;
     private bool finished;
     private float timePassed;
     private string minutes;
     private string seconds;
+    private string timePassedFormatted;
 
     void Start()
     {
         StartTime = Time.time;
     }
 
-    void OnEnable()
-    {
-        StartTime = Time.time;
-    }
 	// Update is called once per frame
 	void Update ()
 	{
@@ -36,20 +34,27 @@ public class Timer : MonoBehaviour
 	    minutes = ((int) timePassed / 60).ToString();
 	    seconds = ((int) timePassed % 60).ToString();
 
-	    timerText.text = minutes + ":" + seconds;
+	    timePassedFormatted = minutes + ":" + seconds;
+	    timerText.text = timePassedFormatted;
 	}
 
-    void Finished()
+    public bool Finished()
     {
         finished = true;
+
+        Destroy(timerText.gameObject);
+
+        timerText = levelCompletedTimerText;
         timerText.color = Color.green;
-        timerText.fontSize = 40;
-        timerText.text = "Finished in: " + timerText.text;
+        timerText.fontSize = 60;
+        timerText.text = "Finished in: " + timePassedFormatted;
 
         if (HighScoreCheck.CheckHighScore(timePassed))
         {
-            timerText.text = "NEW HIGHSCORE: " + minutes + " : " + seconds;
+            timerText.text = "NEW HIGHSCORE: " + timePassedFormatted;
+            return true;
         }
-        
+
+        return false;
     }
 }

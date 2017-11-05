@@ -8,13 +8,12 @@ public class ResetCar : MonoBehaviour
 {
     public GameObject CarToReset;
     public Transform ResetPosition;
-    public 
-
+    private bool levelCompleted;
 
     void Update()
     {
         //IF R is presset restart level.
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && !levelCompleted)
         {
             StartCoroutine(Reset(0));
 
@@ -33,8 +32,11 @@ public class ResetCar : MonoBehaviour
     public IEnumerator ResetToCheckPoint(int ResetTime)
     {
         yield return new WaitForSeconds(ResetTime);
-       // CarToReset.transform.position = CheckPoint
 
-        //Set dead false
+    }
+
+    public void SetLevelCompleted()
+    {
+        levelCompleted = true;
     }
 }
