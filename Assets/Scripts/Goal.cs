@@ -40,7 +40,7 @@ public class Goal : MonoBehaviour
             {
                 PlayerValues.Player.money += 100;
                 PlayerValues.Player.UnlockedLevels.Add(SceneManager.GetActiveScene().buildIndex);
-                MoneyLevelCompleted.text = "LEVEL COMPLETED FOR THE FIRST TIME!\n COIN BONUS: 100.\n   COINS COLLECTED: " + (MoneyPickup.GetEarnedLevelMoney() + 100);
+                MoneyLevelCompleted.text = "<color=lime>LEVEL COMPLETED FOR THE FIRST TIME!</color>\n\n <color=yellow>COIN BONUS:</color> <color=orange>100.</color>\n\n   <color=yellow>COINS COLLECTED:</color> <color=orange>" + (MoneyPickup.GetEarnedLevelMoney() + 100 + "</color>");
             }
 
             LevelCompletedCanvas.enabled = true;

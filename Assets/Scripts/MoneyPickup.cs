@@ -9,6 +9,7 @@ public class MoneyPickup : MonoBehaviour
     private Text MoneyText;
     private AudioSource CoinSound;
     private SpriteRenderer Renderer;
+    private Collider2D Collider;
     private static int TotalMoney;
     private static int LevelStartMoney;
     public GameObject Car;
@@ -20,6 +21,7 @@ public class MoneyPickup : MonoBehaviour
         MoneyText = GameObject.FindWithTag("Money").GetComponent<Text>();
         CoinSound = GetComponent<AudioSource>();
         Renderer = GetComponent<SpriteRenderer>();
+        Collider = GetComponent<Collider2D>();
         TotalMoney = PlayerValues.Player.money;   
         MoneyText.text = "MONEY: " + TotalMoney;
     }
@@ -41,6 +43,7 @@ public class MoneyPickup : MonoBehaviour
             AddMoney(MoneyValue);
             MoneyText.text = "MONEY: " + TotalMoney;
             Renderer.enabled = false;
+            Collider.enabled = false;
             Destroy(transform.gameObject,1);
         }
 
