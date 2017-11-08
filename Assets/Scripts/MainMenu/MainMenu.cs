@@ -10,25 +10,24 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject ContinueButton;
     public GameObject NewGamePanel;
+    public Toggle UseBloodToggle;
+    private bool _useBlood;
 
     void Start()
     {
         if (SaveSystem.SaveExist())
         {
             //LOAD IN ALL THE PLAYER VALUES ON GAME START
-           SaveSystem.Load();
+            SaveSystem.Load();
             ContinueButton.SetActive(true);
+            UseBloodToggle.isOn = PlayerValues.Player.UseBlood;
         }
     }
 
     public void StartNewGame()
     {
         SaveSystem.DeleteSave();
-        SceneManager.LoadScene(1);
-    }
-
-    public void Continue()
-    {
+        PlayerValues.Player.UseBlood = _useBlood;
         SceneManager.LoadScene(1);
     }
 
@@ -54,6 +53,11 @@ public class MainMenu : MonoBehaviour
         NewGamePanel.SetActive(false);
     }
 
-
+    public void SetUseBlood()
+    {
+        PlayerValues.Player.UseBlood = !PlayerValues.Player.UseBlood;
+        _useBlood = PlayerValues.Player.UseBlood;
+        SaveSystem.Save();
+    }
 
 }

@@ -8,16 +8,16 @@ public class DeathScript : MonoBehaviour {
     public GameObject Car;
     public GameObject BloodPrefab;
     private AudioSource Audiosource;
-    public ResetCar ResetCar;
+    public PlayerReset PlayerReset;
     public Sprite BloodSprite;
-    public Sprite FreezeSprite;
-    public bool UseBlood = true;
+    public Sprite FreezeSprite; 
     private int ResetTime = 3;
     private bool IsDead;
 
     // Use this for initialization
     void Start()
     {
+        print(PlayerValues.Player.UseBlood);
         Audiosource = GetComponent<AudioSource>();
     }
 
@@ -48,14 +48,14 @@ public class DeathScript : MonoBehaviour {
         }//
 
         //Reset Vehicle
-        StartCoroutine(ResetCar.Reset(ResetTime));
+        StartCoroutine(PlayerReset.Reset(ResetTime));
     }
     public void Crash()
     {
         if (IsDead) return;
         Kill();
 
-        if (UseBlood)
+        if (PlayerValues.Player.UseBlood)
         {
             //Spawn Blood
             Instantiate(BloodPrefab, Car.transform.position, Quaternion.identity);
@@ -71,14 +71,14 @@ public class DeathScript : MonoBehaviour {
         }
 
         //Reset Vehicle
-        StartCoroutine(ResetCar.Reset(ResetTime));
+        StartCoroutine(PlayerReset.Reset(ResetTime));
     }
     public void Crush()
     {
         if (IsDead) return;
         Kill();
 
-        if (UseBlood)
+        if (PlayerValues.Player.UseBlood)
         {
             //Spawn Blood
             Instantiate(BloodPrefab, Car.transform.position, Quaternion.identity);
@@ -93,7 +93,7 @@ public class DeathScript : MonoBehaviour {
         }
 
         //Reset Vehicle
-        StartCoroutine(ResetCar.Reset(ResetTime));
+        StartCoroutine(PlayerReset.Reset(ResetTime));
     }
 
     }

@@ -19,7 +19,8 @@ public class EngineSound : MonoBehaviour {
     {
         if (Time.timeScale != 0 && WorkingCarMotor)
         {
-            currentSpeed = transform.GetComponent<Rigidbody2D>().velocity.magnitude * 3.6f;
+           currentSpeed = transform.GetComponent<Rigidbody2D>().velocity.magnitude * 3.6f;
+           
             pitch = currentSpeed / topSpeed + 1;
 
             EngineAudio.pitch = pitch;

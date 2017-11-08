@@ -6,23 +6,24 @@ using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
-    public ResetCar ResetCar;
+    public PlayerReset PlayerReset;
     public Timer Timer;
     public Text MoneyText;
-    public Text MoneyLevelCompleted;
+    public Text MoneyLevelCompletedText;
     public Canvas LevelCompletedCanvas;
-    public static bool LevelCompleted;
     public Button NextLevelButton;
+    public static bool LevelCompleted;
 
     private void Start()
     {
         LevelCompleted = false;
 
         // CHECK IF THIS IS THE LAST LEVEL
-        if (SceneManager.sceneCount <= SceneManager.GetActiveScene().buildIndex)
+        if ((SceneManager.sceneCountInBuildSettings - 1) <= SceneManager.GetActiveScene().buildIndex)
         {
             Destroy(NextLevelButton.gameObject);
         }
+
     }
 
     // check if goal is reached and display level summary.
@@ -32,15 +33,15 @@ public class Goal : MonoBehaviour
         {
 
             Timer.Finished();
-            ResetCar.SetLevelCompleted();
+            PlayerReset.SetLevelCompleted();
 
-            MoneyLevelCompleted.text = "COINS COLLECTED: " + MoneyPickup.GetEarnedLevelMoney();
+            MoneyLevelCompletedText.text = "COINS COLLECTED: " + MoneyPickup.GetEarnedLevelMoney();
 
             if (!PlayerValues.Player.UnlockedLevels.Contains(SceneManager.GetActiveScene().buildIndex))
             {
                 PlayerValues.Player.money += 100;
                 PlayerValues.Player.UnlockedLevels.Add(SceneManager.GetActiveScene().buildIndex);
-                MoneyLevelCompleted.text = "<color=lime>LEVEL COMPLETED FOR THE FIRST TIME!</color>\n\n <color=yellow>COIN BONUS:</color> <color=orange>100.</color>\n\n   <color=yellow>COINS COLLECTED:</color> <color=orange>" + (MoneyPickup.GetEarnedLevelMoney() + 100 + "</color>");
+                MoneyLevelCompletedText.text = "<color=lime>LEVEL COMPLETED FOR THE FIRST TIME!</color>\n\n <color=yellow>COIN BONUS:</color> <color=orange>100.</color>\n\n   <color=yellow>COINS COLLECTED:</color> <color=orange>" + (MoneyPickup.GetEarnedLevelMoney() + 100 + "</color>");
             }
 
             LevelCompletedCanvas.enabled = true;
@@ -55,18 +56,12 @@ public class Goal : MonoBehaviour
     }
 
 
-    // Load next level
-    public void LoadNextLevel()
-    {
-        SaveSystem.Save();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
     // Check if completed level is player progress.
     public static bool CheckProgress(int levelNumber)
     {
         if (levelNumber > PlayerValues.Player.level)
         {
+            PlayerValues.Player.UnlockedLevels.Add(levelNumber);
             return true;
         }
         return false;

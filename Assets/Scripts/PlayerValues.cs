@@ -21,6 +21,7 @@ public class Player
     public float gameVolume = 0.5f;
     public float musicVolume = 0.5f;
     public bool[] UnlockedUpgrades = new bool[9];
+    public bool UseBlood = true;
     public List<int> UnlockedLevels = new List<int>{ 1 };
 
 }

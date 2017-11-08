@@ -19,9 +19,12 @@ public class AudioHandler : MonoBehaviour
 
     private void SetStartVolumes()
     {
+        //FIND ALL THE SCENE AUDIO
         GameAudio = FindObjectsOfType<AudioSource>();
+
+        //FIND THE MUSIC AUDIO
         MusicAudio = GameObject.FindWithTag("Levelmusic").GetComponent<AudioSource>();
-        //
+        
             MusicSlider.value = PlayerValues.Player.musicVolume;
             GameSlider.value = PlayerValues.Player.gameVolume;
 
@@ -46,7 +49,6 @@ public class AudioHandler : MonoBehaviour
             {
                     audio.volume = volume;
                     PlayerValues.Player.gameVolume = volume;
-                 //   SaveSystem.Save();
             }
 
         }

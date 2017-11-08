@@ -12,7 +12,6 @@ public class SaveSystem : MonoBehaviour
     //Loading
     public static void Load()
     {
-        print("LOADING");
         string path = Application.persistentDataPath + "/Savegame.txt";
 
         if (!File.Exists(path))
@@ -45,7 +44,6 @@ public class SaveSystem : MonoBehaviour
         BinaryFormatter bf = new BinaryFormatter();
 
             bf.Serialize(file, PlayerValues.Player);
-            Debug.Log("SAVED: " + PlayerValues.Player);
         
         file.Close();
     }
@@ -68,9 +66,7 @@ public class SaveSystem : MonoBehaviour
 
         File.Delete(path);
 
-        PlayerValues.Player.money = 0;
-        PlayerValues.Player.level = 2;
-
-        Debug.Log(path + " deleted");
+        PlayerValues.Player = new Player();
+        Save();
     }
 }

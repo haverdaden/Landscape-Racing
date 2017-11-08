@@ -52,11 +52,6 @@ public class WorkShop : MonoBehaviour
     {
         SceneManager.LoadScene(PlayerValues.Player.level);
     }
-    public void Quit()
-    {
-        SaveSystem.Save();
-        SceneManager.LoadScene(0);
-    }
 
     public void ToggleUpgradeMenu()
     {

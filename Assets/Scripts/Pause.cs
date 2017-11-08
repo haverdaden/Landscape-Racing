@@ -33,16 +33,15 @@ public class Pause : MonoBehaviour {
             PauseMenu.SetActive(false);
 	        Time.timeScale = DefaultTimescale;
 	        AudioListener.pause = false;
+            SaveSystem.Save();
             _paused = false;
 
 	    }
 	}
 
-    public void Quit()
+    private void OnDestroy()
     {
         Time.timeScale = DefaultTimescale;
         Time.fixedDeltaTime = DefaultFixedDeltaTime;
-        SaveSystem.Save();
-        SceneManager.LoadScene(1);
     }
 }
